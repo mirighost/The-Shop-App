@@ -4,12 +4,14 @@ import { Platform } from 'react-native';
 
 import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
+import CartScreen from '../screens/shop/CartScreen';
 import Colors from '../constants/Colors';
 
 const ProductsNavigator = createStackNavigator(
     {
         ProductsOverview: ProductsOverviewScreen,
         ProductDetail: ProductDetailScreen,
+        Cart: CartScreen,
     },
     {
         defaultNavigationOptions: {
@@ -17,11 +19,11 @@ const ProductsNavigator = createStackNavigator(
                 backgroundColor:
                     Platform.OS === 'android' ? Colors.primary : '',
             },
-            headerTitle: {
+            headerTitleStyle: {
                 fontFamily: 'open-sans-bold',
             },
             headerBackTitleStyle: {
-                fontFamily: 'open-sans-bold',
+                fontFamily: 'open-sans',
             },
             headerTintColor:
                 Platform.OS === 'android' ? 'white' : Colors.primary,
