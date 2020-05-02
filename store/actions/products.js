@@ -1,6 +1,35 @@
+import Product from '../../models/product';
+
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const CREATE_PRODUCT = 'CREATE_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const SET_PRODUCTS = 'SET_PRODUCTS';
+
+// get request
+export const fetchProducts = () => {
+    return async (dispatch) => {
+        const response = await fetch(
+            'https://native-shop-iosandroid.firebaseio.com/products.json',
+        );
+
+        const resData = await response.json();
+        const loadedProducts = [];
+        for (const key in resData) {
+            loadedProducts.push(
+                new Product(
+                    key,
+                    'u1',
+                    resData[key].title,
+                    resData[key].imageUrl,
+                    resData[key].description,
+                    resData[key].price,
+                ),
+            );
+        }
+
+        dispatch({ type: SET_PRODUCTS, products: loadedProducts });
+    };
+};
 
 export const deleteProduct = (productId) => {
     return { type: DELETE_PRODUCT, pid: productId };
@@ -8,6 +37,7 @@ export const deleteProduct = (productId) => {
 
 export const createProduct = (title, description, imageUrl, price) => {
     return async (dispatch) => {
+        // send request
         const response = await fetch(
             'https://native-shop-iosandroid.firebaseio.com/products.json',
             {
