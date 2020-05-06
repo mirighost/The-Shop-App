@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "shop-app",
-        "slug": "shop-app",
+        "name": "MG Shop",
+        "slug": "mg-shop",
         "platforms": ["ios", "android", "web"],
         "version": "1.0.0",
         "orientation": "portrait",
@@ -17,6 +17,7 @@
         "assetBundlePatterns": ["**/*"],
         "ios": {
             "supportsTablet": true
-        }
+        },
+        "description": "Native Shop application for Android and iOS"
     }
 }
