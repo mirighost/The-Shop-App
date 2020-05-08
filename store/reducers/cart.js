@@ -26,7 +26,6 @@ export default (state = initialState, action) => {
                     state.items[addedProduct.id].sum + prodPrice,
                 );
             } else {
-                // adding item to the cart for the first time
                 updatedOrNewCartItem = new CartItem(
                     1,
                     prodPrice,

@@ -86,7 +86,7 @@ const EditProductScreen = (props) => {
         setIsLoading(true);
         try {
             if (editedProduct) {
-                await dispatch(
+                dispatch(
                     productsActions.updateProduct(
                         prodId,
                         formState.inputValues.title,
@@ -95,7 +95,7 @@ const EditProductScreen = (props) => {
                     ),
                 );
             } else {
-                await dispatch(
+                dispatch(
                     productsActions.createProduct(
                         formState.inputValues.title,
                         formState.inputValues.description,
